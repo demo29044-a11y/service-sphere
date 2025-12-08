@@ -1,0 +1,37 @@
+import { MapPin, Search } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+
+export function LocationSearchBar() {
+  return (
+    <div className="absolute left-1/2 -translate-x-1/2 bottom-0 translate-y-1/2 w-[90%] max-w-3xl z-10">
+      <div className="bg-background rounded-xl shadow-lg p-4 md:p-6">
+        <div className="flex flex-col md:flex-row gap-3 md:gap-4 items-stretch md:items-center">
+          <div className="flex-1 relative">
+            <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+            <Input
+              type="text"
+              placeholder="Enter a location or postal code"
+              className="pl-10 h-12 text-base border-input"
+            />
+          </div>
+          <div className="flex flex-col sm:flex-row gap-3">
+            <Button
+              variant="outline"
+              className="h-12 px-6 border-2 font-medium"
+            >
+              <MapPin className="h-4 w-4 mr-2" />
+              Use Location
+            </Button>
+            <Button
+              className="h-12 px-6 font-medium bg-[hsl(var(--red-accent))] hover:bg-[hsl(var(--red-accent))]/90 text-[hsl(var(--red-accent-foreground))]"
+            >
+              <Search className="h-4 w-4 mr-2" />
+              Search For Homes
+            </Button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
