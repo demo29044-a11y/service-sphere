@@ -1,5 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const team = [
   {
@@ -29,10 +30,18 @@ const team = [
 ];
 
 const TeamSection = () => {
+  const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation({ threshold: 0.3 });
+  const { ref: cardsRef, isVisible: cardsVisible } = useScrollAnimation({ threshold: 0.1 });
+
   return (
     <section className="py-16 md:py-24 bg-muted/30">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
+        <div 
+          ref={headerRef}
+          className={`text-center mb-12 transition-all duration-700 ${
+            headerVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          }`}
+        >
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
             Meet Our Team
           </h2>
@@ -40,12 +49,14 @@ const TeamSection = () => {
             The passionate people behind our mission to simplify service discovery
           </p>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+        <div ref={cardsRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
           {team.map((member, index) => (
             <Card 
               key={index} 
-              className="border-0 shadow-sm hover:shadow-md transition-shadow duration-300 text-center animate-fade-in"
-              style={{ animationDelay: `${index * 100}ms` }}
+              className={`border-0 shadow-sm hover:shadow-md transition-all duration-500 text-center ${
+                cardsVisible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-8 scale-95"
+              }`}
+              style={{ transitionDelay: `${index * 100}ms` }}
             >
               <CardContent className="p-6">
                 <Avatar className="w-20 h-20 mx-auto mb-4">
