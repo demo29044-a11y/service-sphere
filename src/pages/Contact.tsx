@@ -6,13 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent } from "@/components/ui/card";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import {
   Mail,
   Phone,
@@ -40,16 +34,16 @@ const contactMethods = [
     icon: Mail,
     title: "Email Us",
     description: "Our team will respond within 24 hours",
-    contact: "support@servicehub.com",
-    action: "mailto:support@servicehub.com",
+    contact: "it.imagineering@gmail.com",
+    action: "mailto:it.imagineering@gmail.com",
     gradient: "from-blue-500 to-cyan-500",
   },
   {
     icon: Phone,
     title: "Call Us",
     description: "Mon-Fri from 8am to 6pm EST",
-    contact: "+1 (555) 123-4567",
-    action: "tel:+15551234567",
+    contact: "+91 9876543212",
+    action: "tel:+919876543212",
     gradient: "from-green-500 to-emerald-500",
   },
   {
@@ -102,33 +96,30 @@ export default function Contact() {
         {/* Hero Section with Background */}
         <section className="relative py-20 md:py-28 overflow-hidden">
           {/* Background Image with Overlay */}
-          <div 
+          <div
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
             style={{
               backgroundImage: `url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=2000&q=80')`,
             }}
           />
           <div className="absolute inset-0 bg-gradient-to-br from-primary/90 via-primary/80 to-primary/70" />
-          
+
           {/* Decorative Elements */}
           <div className="absolute top-20 left-10 w-72 h-72 bg-white/10 rounded-full blur-3xl" />
           <div className="absolute bottom-10 right-10 w-96 h-96 bg-white/5 rounded-full blur-3xl" />
-          
-          <div 
+
+          <div
             ref={heroAnimation.ref}
-            className={`container relative z-10 transition-all duration-700 ${heroAnimation.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+            className={`container relative z-10 transition-all duration-700 ${heroAnimation.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
           >
             <div className="mx-auto max-w-3xl text-center">
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/20 backdrop-blur-sm text-white/90 text-sm mb-6">
                 <Headphones className="h-4 w-4" />
                 <span>We're here to help</span>
               </div>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-                Get in Touch
-              </h1>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">Get in Touch</h1>
               <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto">
-                Have a question or need help? We're here to assist you. Choose
-                the best way to reach us below.
+                Have a question or need help? We're here to assist you. Choose the best way to reach us below.
               </p>
             </div>
           </div>
@@ -137,9 +128,9 @@ export default function Contact() {
         {/* Contact Methods - Floating Cards */}
         <section className="py-12 -mt-16 relative z-20">
           <div className="container">
-            <div 
+            <div
               ref={methodsAnimation.ref}
-              className={`grid md:grid-cols-3 gap-6 max-w-5xl mx-auto transition-all duration-700 delay-200 ${methodsAnimation.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+              className={`grid md:grid-cols-3 gap-6 max-w-5xl mx-auto transition-all duration-700 delay-200 ${methodsAnimation.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
             >
               {contactMethods.map((method, index) => (
                 <a
@@ -150,19 +141,19 @@ export default function Contact() {
                 >
                   <Card className="relative overflow-hidden border-0 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 bg-card">
                     {/* Gradient Border Effect */}
-                    <div className={`absolute inset-0 bg-gradient-to-br ${method.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+                    <div
+                      className={`absolute inset-0 bg-gradient-to-br ${method.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
+                    />
                     <div className="absolute inset-[2px] bg-card rounded-[calc(var(--radius)-2px)]" />
-                    
+
                     <CardContent className="relative pt-8 pb-8 text-center">
-                      <div className={`mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br ${method.gradient} text-white shadow-lg group-hover:scale-110 transition-transform duration-500`}>
+                      <div
+                        className={`mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br ${method.gradient} text-white shadow-lg group-hover:scale-110 transition-transform duration-500`}
+                      >
                         <method.icon className="h-8 w-8" />
                       </div>
-                      <h3 className="text-xl font-bold text-foreground mb-2">
-                        {method.title}
-                      </h3>
-                      <p className="text-sm text-muted-foreground mb-4">
-                        {method.description}
-                      </p>
+                      <h3 className="text-xl font-bold text-foreground mb-2">{method.title}</h3>
+                      <p className="text-sm text-muted-foreground mb-4">{method.description}</p>
                       <span className="inline-flex items-center gap-2 text-primary font-semibold group-hover:gap-3 transition-all duration-300">
                         {method.contact}
                         <ArrowRight className="h-4 w-4" />
@@ -180,9 +171,9 @@ export default function Contact() {
           <div className="container">
             <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
               {/* Form */}
-              <div 
+              <div
                 ref={formAnimation.ref}
-                className={`transition-all duration-700 delay-300 ${formAnimation.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+                className={`transition-all duration-700 delay-300 ${formAnimation.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
               >
                 <Card className="border-0 shadow-2xl overflow-hidden">
                   <div className="bg-gradient-to-r from-primary to-primary/80 p-6">
@@ -196,7 +187,9 @@ export default function Contact() {
                     <form onSubmit={handleSubmit} className="space-y-5">
                       <div className="grid sm:grid-cols-2 gap-4">
                         <div className="space-y-2">
-                          <Label htmlFor="name" className="text-sm font-medium">Your Name</Label>
+                          <Label htmlFor="name" className="text-sm font-medium">
+                            Your Name
+                          </Label>
                           <div className="relative">
                             <User className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                             <Input
@@ -204,15 +197,15 @@ export default function Contact() {
                               placeholder="John Doe"
                               className="pl-10 h-12 border-muted-foreground/20 focus:border-primary transition-colors"
                               value={formData.name}
-                              onChange={(e) =>
-                                setFormData({ ...formData, name: e.target.value })
-                              }
+                              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                               required
                             />
                           </div>
                         </div>
                         <div className="space-y-2">
-                          <Label htmlFor="email" className="text-sm font-medium">Email Address</Label>
+                          <Label htmlFor="email" className="text-sm font-medium">
+                            Email Address
+                          </Label>
                           <div className="relative">
                             <AtSign className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                             <Input
@@ -221,9 +214,7 @@ export default function Contact() {
                               placeholder="john@example.com"
                               className="pl-10 h-12 border-muted-foreground/20 focus:border-primary transition-colors"
                               value={formData.email}
-                              onChange={(e) =>
-                                setFormData({ ...formData, email: e.target.value })
-                              }
+                              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                               required
                             />
                           </div>
@@ -232,14 +223,14 @@ export default function Contact() {
 
                       <div className="grid sm:grid-cols-2 gap-4">
                         <div className="space-y-2">
-                          <Label htmlFor="category" className="text-sm font-medium">Category</Label>
+                          <Label htmlFor="category" className="text-sm font-medium">
+                            Category
+                          </Label>
                           <div className="relative">
                             <Layers className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground z-10" />
                             <Select
                               value={formData.category}
-                              onValueChange={(value) =>
-                                setFormData({ ...formData, category: value })
-                              }
+                              onValueChange={(value) => setFormData({ ...formData, category: value })}
                             >
                               <SelectTrigger className="pl-10 h-12 border-muted-foreground/20">
                                 <SelectValue placeholder="Select category" />
@@ -255,7 +246,9 @@ export default function Contact() {
                           </div>
                         </div>
                         <div className="space-y-2">
-                          <Label htmlFor="subject" className="text-sm font-medium">Subject</Label>
+                          <Label htmlFor="subject" className="text-sm font-medium">
+                            Subject
+                          </Label>
                           <div className="relative">
                             <FileText className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                             <Input
@@ -263,9 +256,7 @@ export default function Contact() {
                               placeholder="How can we help?"
                               className="pl-10 h-12 border-muted-foreground/20 focus:border-primary transition-colors"
                               value={formData.subject}
-                              onChange={(e) =>
-                                setFormData({ ...formData, subject: e.target.value })
-                              }
+                              onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                               required
                             />
                           </div>
@@ -273,7 +264,9 @@ export default function Contact() {
                       </div>
 
                       <div className="space-y-2">
-                        <Label htmlFor="message" className="text-sm font-medium">Message</Label>
+                        <Label htmlFor="message" className="text-sm font-medium">
+                          Message
+                        </Label>
                         <div className="relative">
                           <MessageCircle className="absolute left-3 top-4 h-4 w-4 text-muted-foreground" />
                           <Textarea
@@ -282,16 +275,14 @@ export default function Contact() {
                             rows={5}
                             className="pl-10 pt-3 border-muted-foreground/20 focus:border-primary transition-colors resize-none"
                             value={formData.message}
-                            onChange={(e) =>
-                              setFormData({ ...formData, message: e.target.value })
-                            }
+                            onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                             required
                           />
                         </div>
                       </div>
 
-                      <Button 
-                        type="submit" 
+                      <Button
+                        type="submit"
                         className="w-full h-12 text-base font-semibold bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 transition-all duration-300 shadow-lg hover:shadow-xl"
                         disabled={isSubmitting}
                       >
@@ -313,17 +304,15 @@ export default function Contact() {
               </div>
 
               {/* Info Section */}
-              <div 
+              <div
                 ref={infoAnimation.ref}
-                className={`space-y-6 transition-all duration-700 delay-400 ${infoAnimation.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+                className={`space-y-6 transition-all duration-700 delay-400 ${infoAnimation.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
               >
                 <div className="mb-8">
-                  <h2 className="text-3xl font-bold text-foreground mb-4">
-                    We'd Love to Hear From You
-                  </h2>
+                  <h2 className="text-3xl font-bold text-foreground mb-4">We'd Love to Hear From You</h2>
                   <p className="text-muted-foreground text-lg">
-                    Whether you have a question about our platform, pricing, or
-                    anything else, our team is ready to answer all your questions.
+                    Whether you have a question about our platform, pricing, or anything else, our team is ready to
+                    answer all your questions.
                   </p>
                 </div>
 
@@ -337,9 +326,7 @@ export default function Contact() {
                           <MapPin className="h-6 w-6 text-white" />
                         </div>
                         <div>
-                          <h3 className="font-bold text-foreground text-lg">
-                            Our Office
-                          </h3>
+                          <h3 className="font-bold text-foreground text-lg">Our Office</h3>
                           <p className="text-muted-foreground mt-2 leading-relaxed">
                             123 Market Street, Suite 456
                             <br />
@@ -363,9 +350,7 @@ export default function Contact() {
                           <Clock className="h-6 w-6 text-white" />
                         </div>
                         <div>
-                          <h3 className="font-bold text-foreground text-lg">
-                            Business Hours
-                          </h3>
+                          <h3 className="font-bold text-foreground text-lg">Business Hours</h3>
                           <div className="text-muted-foreground mt-2 space-y-1">
                             <p className="flex justify-between gap-8">
                               <span>Monday - Friday:</span>
@@ -396,9 +381,7 @@ export default function Contact() {
                           <Globe className="h-6 w-6 text-white" />
                         </div>
                         <div>
-                          <h3 className="font-bold text-foreground text-lg">
-                            Global Support
-                          </h3>
+                          <h3 className="font-bold text-foreground text-lg">Global Support</h3>
                           <p className="text-muted-foreground mt-2">
                             We serve customers worldwide with support in multiple languages and time zones.
                           </p>
@@ -412,12 +395,10 @@ export default function Contact() {
                 <div className="p-6 rounded-2xl bg-gradient-to-br from-primary/10 via-primary/5 to-transparent border border-primary/20 relative overflow-hidden">
                   <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-2xl" />
                   <div className="relative">
-                    <h3 className="font-bold text-foreground text-lg mb-2">
-                      Need Immediate Help?
-                    </h3>
+                    <h3 className="font-bold text-foreground text-lg mb-2">Need Immediate Help?</h3>
                     <p className="text-muted-foreground mb-4">
-                      Pro and Business subscribers have access to priority support
-                      and live chat with dedicated account managers.
+                      Pro and Business subscribers have access to priority support and live chat with dedicated account
+                      managers.
                     </p>
                     <Button variant="default" size="sm" asChild className="shadow-lg">
                       <a href="/pricing" className="inline-flex items-center gap-2">
