@@ -30,7 +30,7 @@ export function CategoryProviderCard({
     <Link
       to={`/provider/${id}`}
       className={cn(
-        "group flex-shrink-0 w-[280px] bg-card rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 hover:scale-[1.02]",
+        "group flex-shrink-0 w-[220px] bg-card rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 hover:scale-[1.02]",
         className
       )}
     >
@@ -44,34 +44,33 @@ export function CategoryProviderCard({
         <Button
           variant="ghost"
           size="icon"
-          className="absolute top-3 right-3 h-8 w-8 rounded-full bg-background/90 backdrop-blur-sm hover:bg-background hover:text-destructive"
+          className="absolute top-2 right-2 h-7 w-7 rounded-full bg-background/90 backdrop-blur-sm hover:bg-background hover:text-destructive"
           onClick={(e) => {
             e.preventDefault();
             e.stopPropagation();
           }}
         >
-          <Heart className="h-4 w-4" />
+          <Heart className="h-3.5 w-3.5" />
         </Button>
       </div>
 
       {/* Content */}
-      <div className="p-4">
-        <h3 className="font-semibold text-foreground text-base line-clamp-1 group-hover:text-primary transition-colors">
+      <div className="p-3">
+        <h3 className="font-semibold text-foreground text-sm line-clamp-1 group-hover:text-primary transition-colors">
           {name}
         </h3>
-        <p className="text-sm text-muted-foreground mt-1 line-clamp-1">
+        <p className="text-xs text-muted-foreground mt-0.5 line-clamp-1">
           {location}
         </p>
         
-        <div className="flex items-center justify-between mt-3">
-          <p className="text-foreground">
+        <div className="flex items-center justify-between mt-2">
+          <p className="text-foreground text-sm">
             <span className="font-bold">₹{price.toLocaleString('en-IN')}</span>
-            <span className="text-sm text-muted-foreground"> {priceLabel}</span>
+            <span className="text-xs text-muted-foreground"> {priceLabel}</span>
           </p>
-          <div className="flex items-center gap-1">
-            <Star className="h-4 w-4 fill-foreground text-foreground" />
-            <span className="font-medium text-sm">{rating}</span>
-            <span className="text-sm text-muted-foreground">({reviewCount})</span>
+          <div className="flex items-center gap-0.5">
+            <Star className="h-3.5 w-3.5 fill-foreground text-foreground" />
+            <span className="font-medium text-xs">{rating}</span>
           </div>
         </div>
       </div>
