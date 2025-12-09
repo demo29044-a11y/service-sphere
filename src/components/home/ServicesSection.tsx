@@ -1,4 +1,4 @@
-import { ServicePlaceholderCard } from "./ServicePlaceholderCard";
+import { ServicePlaceholderCard, serviceCategories } from "./ServicePlaceholderCard";
 
 export function ServicesSection() {
   return (
@@ -11,8 +11,8 @@ export function ServicesSection() {
         </h2>
         
         {/* Services Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
-          {Array.from({ length: 12 }).map((_, index) => (
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6">
+          {serviceCategories.map((_, index) => (
             <ServicePlaceholderCard key={index} index={index} />
           ))}
         </div>
