@@ -8,13 +8,13 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <Header />
-      
+
       <main className="flex-1">
         <HeroSection />
-        <CategorySections />
         <ServicesSection />
+        <CategorySections />
       </main>
-      
+
       <Footer />
     </div>
   );
