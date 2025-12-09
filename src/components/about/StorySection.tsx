@@ -1,16 +1,30 @@
 import { Building2 } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const StorySection = () => {
+  const { ref: imageRef, isVisible: imageVisible } = useScrollAnimation({ threshold: 0.2 });
+  const { ref: textRef, isVisible: textVisible } = useScrollAnimation({ threshold: 0.2 });
+
   return (
     <section className="py-16 md:py-24 bg-background">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="flex items-center justify-center order-2 md:order-1">
+          <div 
+            ref={imageRef}
+            className={`flex items-center justify-center order-2 md:order-1 transition-all duration-700 delay-100 ${
+              imageVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"
+            }`}
+          >
             <div className="w-full max-w-md aspect-[4/3] bg-muted/50 rounded-2xl flex items-center justify-center">
               <Building2 className="h-24 w-24 text-muted-foreground/30" />
             </div>
           </div>
-          <div className="order-1 md:order-2">
+          <div 
+            ref={textRef}
+            className={`order-1 md:order-2 transition-all duration-700 delay-200 ${
+              textVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"
+            }`}
+          >
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
               Our Story
             </h2>

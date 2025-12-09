@@ -1,11 +1,19 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Search, UserPlus } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const CTASection = () => {
+  const { ref, isVisible } = useScrollAnimation({ threshold: 0.3 });
+
   return (
     <section className="py-16 md:py-24 bg-background">
-      <div className="container mx-auto px-4 text-center">
+      <div 
+        ref={ref}
+        className={`container mx-auto px-4 text-center transition-all duration-700 ${
+          isVisible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-8 scale-95"
+        }`}
+      >
         <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
           Ready to Get Started?
         </h2>

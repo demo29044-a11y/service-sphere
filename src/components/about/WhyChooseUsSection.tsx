@@ -1,5 +1,6 @@
 import { BadgeCheck, MapPin, Zap, MessageSquare } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const reasons = [
   {
@@ -25,10 +26,18 @@ const reasons = [
 ];
 
 const WhyChooseUsSection = () => {
+  const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation({ threshold: 0.3 });
+  const { ref: cardsRef, isVisible: cardsVisible } = useScrollAnimation({ threshold: 0.1 });
+
   return (
     <section className="py-16 md:py-24 bg-muted/30">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
+        <div 
+          ref={headerRef}
+          className={`text-center mb-12 transition-all duration-700 ${
+            headerVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          }`}
+        >
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
             Why Choose Us
           </h2>
@@ -36,12 +45,14 @@ const WhyChooseUsSection = () => {
             We're committed to making your service discovery experience seamless and trustworthy
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <div ref={cardsRef} className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
           {reasons.map((reason, index) => (
             <Card 
               key={index} 
-              className="border-0 shadow-sm hover:shadow-md transition-shadow duration-300 animate-fade-in"
-              style={{ animationDelay: `${index * 100}ms` }}
+              className={`border-0 shadow-sm hover:shadow-md transition-all duration-500 ${
+                cardsVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              }`}
+              style={{ transitionDelay: `${index * 100}ms` }}
             >
               <CardContent className="p-6 flex gap-4">
                 <div className="w-12 h-12 rounded-xl bg-[hsl(var(--red-accent))]/10 flex items-center justify-center flex-shrink-0">
