@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import { Link } from "react-router-dom";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CategoryProviderCard } from "./CategoryProviderCard";
@@ -41,7 +42,13 @@ export function CategoryScrollSection({ title, providers }: CategoryScrollSectio
     <section className="py-4">
       {/* Header with Title and Arrows */}
       <div className="flex items-center justify-between mb-6">
-        <h2 className="text-2xl font-bold text-foreground">{title}</h2>
+        <Link 
+          to={`/services?category=${encodeURIComponent(title)}`}
+          className="flex items-center gap-2 group/title hover:text-primary transition-colors"
+        >
+          <h2 className="text-2xl font-bold text-foreground group-hover/title:text-primary transition-colors">{title}</h2>
+          <ChevronRight className="h-5 w-5 text-muted-foreground group-hover/title:text-primary group-hover/title:translate-x-1 transition-all" />
+        </Link>
         <div className="flex items-center gap-2">
           <Button
             variant="outline"
