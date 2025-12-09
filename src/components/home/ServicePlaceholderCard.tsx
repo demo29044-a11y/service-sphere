@@ -1,16 +1,16 @@
 import { Link } from "react-router-dom";
-import { 
-  HardHat, 
-  Cog, 
-  Mountain, 
-  Home, 
-  Building2, 
-  Factory, 
-  Truck, 
-  Store, 
-  Key, 
+import {
+  HardHat,
+  Cog,
+  Mountain,
+  Home,
+  Building2,
+  Factory,
+  Truck,
+  Store,
+  Key,
   Construction,
-  LucideIcon
+  LucideIcon,
 } from "lucide-react";
 
 const serviceCategories = [
@@ -32,13 +32,11 @@ interface ServicePlaceholderCardProps {
 
 export function ServicePlaceholderCard({ index }: ServicePlaceholderCardProps) {
   const category = serviceCategories[index];
-  
+
   if (!category) {
     return (
       <div className="aspect-square bg-muted rounded-xl transition-all duration-300 hover:shadow-md hover:-translate-y-1 cursor-pointer flex items-center justify-center">
-        <span className="text-muted-foreground/40 text-sm font-medium">
-          Coming Soon
-        </span>
+        <span className="text-muted-foreground/40 text-sm font-medium">Coming Soon</span>
       </div>
     );
   }
@@ -49,11 +47,9 @@ export function ServicePlaceholderCard({ index }: ServicePlaceholderCardProps) {
     <Link to={`/services?category=${category.slug}`}>
       <div className="aspect-square bg-muted rounded-lg transition-all duration-300 hover:shadow-md hover:-translate-y-1 cursor-pointer flex flex-col items-center justify-center gap-2 group">
         <div className="p-3 rounded-full bg-background transition-colors group-hover:bg-[hsl(var(--red-accent))] group-hover:text-white">
-          <IconComponent className="h-6 w-6 md:h-7 md:w-7" />
+          <IconComponent className="h-6 w-6 md:h-6 md:w-6" />
         </div>
-        <span className="text-foreground font-medium text-xs md:text-sm text-center px-2">
-          {category.name}
-        </span>
+        <span className="text-foreground font-medium text-xs md:text-sm text-center px-2">{category.name}</span>
       </div>
     </Link>
   );
