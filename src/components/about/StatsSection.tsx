@@ -1,20 +1,54 @@
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { useCountUp } from "@/hooks/useCountUp";
+
+interface StatItemProps {
+  value: number;
+  suffix: string;
+  label: string;
+  index: number;
+  isVisible: boolean;
+}
+
+const StatItem = ({ value, suffix, label, index, isVisible }: StatItemProps) => {
+  const { count, ref } = useCountUp({ end: value, duration: 2000 });
+
+  return (
+    <div 
+      ref={ref}
+      className={`text-center transition-all duration-500 ${
+        isVisible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-8 scale-90"
+      }`}
+      style={{ transitionDelay: `${index * 100}ms` }}
+    >
+      <div className="text-4xl md:text-5xl font-bold text-[hsl(var(--red-accent-foreground))] mb-2">
+        {count.toLocaleString()}{suffix}
+      </div>
+      <div className="text-[hsl(var(--red-accent-foreground))]/80 text-sm md:text-base">
+        {label}
+      </div>
+    </div>
+  );
+};
 
 const stats = [
   {
-    value: "10+",
+    value: 10,
+    suffix: "+",
     label: "Service Categories",
   },
   {
-    value: "1,000+",
+    value: 1000,
+    suffix: "+",
     label: "Verified Providers",
   },
   {
-    value: "10,000+",
+    value: 10000,
+    suffix: "+",
     label: "Happy Customers",
   },
   {
-    value: "50+",
+    value: 50,
+    suffix: "+",
     label: "Cities Covered",
   },
 ];
@@ -41,20 +75,14 @@ const StatsSection = () => {
         </div>
         <div ref={statsRef} className="grid grid-cols-2 lg:grid-cols-4 gap-8 max-w-4xl mx-auto">
           {stats.map((stat, index) => (
-            <div 
-              key={index} 
-              className={`text-center transition-all duration-500 ${
-                statsVisible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-8 scale-90"
-              }`}
-              style={{ transitionDelay: `${index * 100}ms` }}
-            >
-              <div className="text-4xl md:text-5xl font-bold text-[hsl(var(--red-accent-foreground))] mb-2">
-                {stat.value}
-              </div>
-              <div className="text-[hsl(var(--red-accent-foreground))]/80 text-sm md:text-base">
-                {stat.label}
-              </div>
-            </div>
+            <StatItem
+              key={index}
+              value={stat.value}
+              suffix={stat.suffix}
+              label={stat.label}
+              index={index}
+              isVisible={statsVisible}
+            />
           ))}
         </div>
       </div>
