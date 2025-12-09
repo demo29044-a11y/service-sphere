@@ -20,10 +20,10 @@ const StatItem = ({ value, suffix, label, index, isVisible }: StatItemProps) => 
       }`}
       style={{ transitionDelay: `${index * 100}ms` }}
     >
-      <div className="text-4xl md:text-5xl font-bold text-[hsl(var(--red-accent-foreground))] mb-2">
+      <div className="text-4xl md:text-5xl font-bold text-primary mb-2">
         {count.toLocaleString()}{suffix}
       </div>
-      <div className="text-[hsl(var(--red-accent-foreground))]/80 text-sm md:text-base">
+      <div className="text-muted-foreground text-sm md:text-base">
         {label}
       </div>
     </div>
@@ -58,7 +58,7 @@ const StatsSection = () => {
   const { ref: statsRef, isVisible: statsVisible } = useScrollAnimation({ threshold: 0.2 });
 
   return (
-    <section className="py-16 md:py-20 bg-[hsl(var(--red-accent))]">
+    <section className="py-16 md:py-20 bg-muted/50">
       <div className="container mx-auto px-4">
         <div 
           ref={headerRef}
@@ -66,10 +66,10 @@ const StatsSection = () => {
             headerVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-[hsl(var(--red-accent-foreground))] mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
             Our Impact
           </h2>
-          <p className="text-[hsl(var(--red-accent-foreground))]/80 text-lg max-w-2xl mx-auto">
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Growing every day to serve you better
           </p>
         </div>

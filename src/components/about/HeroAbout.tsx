@@ -9,8 +9,8 @@ const HeroAbout = () => {
       className="relative py-20 md:py-32 bg-cover bg-center bg-no-repeat"
       style={{ backgroundImage: `url(${heroBackground})` }}
     >
-      {/* Overlay for better text readability */}
-      <div className="absolute inset-0 bg-background/70" />
+      {/* Gradient overlay for better text readability */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background/90" />
       
       <div 
         ref={ref}

@@ -1,14 +1,14 @@
-import { Target } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import visionImage from "@/assets/vision-image.jpg";
 
 const VisionSection = () => {
   const { ref: textRef, isVisible: textVisible } = useScrollAnimation({ threshold: 0.2 });
   const { ref: imageRef, isVisible: imageVisible } = useScrollAnimation({ threshold: 0.2 });
 
   return (
-    <section className="py-16 md:py-24 bg-background">
+    <section className="py-20 md:py-28 bg-background">
       <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div 
             ref={textRef}
             className={`transition-all duration-700 delay-100 ${
@@ -35,8 +35,12 @@ const VisionSection = () => {
               imageVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"
             }`}
           >
-            <div className="w-full max-w-md aspect-square bg-muted/50 rounded-2xl flex items-center justify-center">
-              <Target className="h-32 w-32 text-muted-foreground/30" />
+            <div className="w-full max-w-md overflow-hidden rounded-2xl shadow-lg">
+              <img 
+                src={visionImage} 
+                alt="Our vision - connecting people with trusted services" 
+                className="w-full h-auto object-cover"
+              />
             </div>
           </div>
         </div>
