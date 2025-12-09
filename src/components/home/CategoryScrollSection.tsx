@@ -29,7 +29,7 @@ export function CategoryScrollSection({ title, providers }: CategoryScrollSectio
         direction === "left"
           ? scrollContainerRef.current.scrollLeft - scrollAmount
           : scrollContainerRef.current.scrollLeft + scrollAmount;
-      
+
       scrollContainerRef.current.scrollTo({
         left: newScrollLeft,
         behavior: "smooth",
@@ -38,7 +38,7 @@ export function CategoryScrollSection({ title, providers }: CategoryScrollSectio
   };
 
   return (
-    <section className="py-8">
+    <section className="py-4">
       {/* Header with Title and Arrows */}
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-2xl font-bold text-foreground">{title}</h2>
