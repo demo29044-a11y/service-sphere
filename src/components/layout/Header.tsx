@@ -28,7 +28,7 @@ export function Header() {
           <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary">
             <span className="text-lg font-bold text-primary-foreground">S</span>
           </div>
-          <span className="text-xl font-bold text-foreground">ServiceHub</span>
+          <span className="text-xl font-bold text-foreground">Imagineering Construct</span>
         </Link>
 
         {/* Desktop Navigation */}
@@ -36,9 +36,7 @@ export function Header() {
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="bg-transparent">
-                  Browse Services
-                </NavigationMenuTrigger>
+                <NavigationMenuTrigger className="bg-transparent">Browse Services</NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <div className="grid w-[500px] gap-3 p-4 md:grid-cols-2">
                     {categories.slice(0, 8).map((category) => (
@@ -47,9 +45,7 @@ export function Header() {
                           to={`/services?category=${category.slug}`}
                           className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                         >
-                          <div className="text-sm font-medium leading-none">
-                            {category.name}
-                          </div>
+                          <div className="text-sm font-medium leading-none">{category.name}</div>
                           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
                             {category.count.toLocaleString()} services
                           </p>
@@ -58,10 +54,7 @@ export function Header() {
                     ))}
                   </div>
                   <div className="border-t p-4">
-                    <Link
-                      to="/services"
-                      className="text-sm font-medium text-primary hover:underline"
-                    >
+                    <Link to="/services" className="text-sm font-medium text-primary hover:underline">
                       View all categories →
                     </Link>
                   </div>
@@ -74,7 +67,7 @@ export function Header() {
             to="/services"
             className={cn(
               "text-sm font-medium transition-colors hover:text-primary",
-              isActive("/services") ? "text-primary" : "text-muted-foreground"
+              isActive("/services") ? "text-primary" : "text-muted-foreground",
             )}
           >
             Find Services
@@ -83,7 +76,7 @@ export function Header() {
             to="/pricing"
             className={cn(
               "text-sm font-medium transition-colors hover:text-primary",
-              isActive("/pricing") ? "text-primary" : "text-muted-foreground"
+              isActive("/pricing") ? "text-primary" : "text-muted-foreground",
             )}
           >
             Pricing
@@ -92,7 +85,7 @@ export function Header() {
             to="/about"
             className={cn(
               "text-sm font-medium transition-colors hover:text-primary",
-              isActive("/about") ? "text-primary" : "text-muted-foreground"
+              isActive("/about") ? "text-primary" : "text-muted-foreground",
             )}
           >
             About
@@ -123,47 +116,23 @@ export function Header() {
           </SheetTrigger>
           <SheetContent side="right" className="w-[300px] sm:w-[400px]">
             <nav className="flex flex-col gap-4 mt-8">
-              <Link
-                to="/services"
-                className="text-lg font-medium"
-                onClick={() => setIsOpen(false)}
-              >
+              <Link to="/services" className="text-lg font-medium" onClick={() => setIsOpen(false)}>
                 Browse Services
               </Link>
-              <Link
-                to="/pricing"
-                className="text-lg font-medium"
-                onClick={() => setIsOpen(false)}
-              >
+              <Link to="/pricing" className="text-lg font-medium" onClick={() => setIsOpen(false)}>
                 Pricing
               </Link>
-              <Link
-                to="/about"
-                className="text-lg font-medium"
-                onClick={() => setIsOpen(false)}
-              >
+              <Link to="/about" className="text-lg font-medium" onClick={() => setIsOpen(false)}>
                 About
               </Link>
-              <Link
-                to="/contact"
-                className="text-lg font-medium"
-                onClick={() => setIsOpen(false)}
-              >
+              <Link to="/contact" className="text-lg font-medium" onClick={() => setIsOpen(false)}>
                 Contact
               </Link>
-              <Link
-                to="/help"
-                className="text-lg font-medium"
-                onClick={() => setIsOpen(false)}
-              >
+              <Link to="/help" className="text-lg font-medium" onClick={() => setIsOpen(false)}>
                 Help Center
               </Link>
               <hr className="my-4" />
-              <Link
-                to="/login"
-                className="text-lg font-medium"
-                onClick={() => setIsOpen(false)}
-              >
+              <Link to="/login" className="text-lg font-medium" onClick={() => setIsOpen(false)}>
                 Sign In
               </Link>
               <Button asChild className="mt-2">
