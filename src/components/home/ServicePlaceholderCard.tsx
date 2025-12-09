@@ -47,11 +47,11 @@ export function ServicePlaceholderCard({ index }: ServicePlaceholderCardProps) {
 
   return (
     <Link to={`/services?category=${category.slug}`}>
-      <div className="aspect-square bg-muted rounded-xl transition-all duration-300 hover:shadow-md hover:-translate-y-1 cursor-pointer flex flex-col items-center justify-center gap-3 group">
-        <div className="p-4 rounded-full bg-background transition-colors group-hover:bg-[hsl(var(--red-accent))] group-hover:text-white">
-          <IconComponent className="h-8 w-8 md:h-10 md:w-10" />
+      <div className="aspect-square bg-muted rounded-lg transition-all duration-300 hover:shadow-md hover:-translate-y-1 cursor-pointer flex flex-col items-center justify-center gap-2 group">
+        <div className="p-3 rounded-full bg-background transition-colors group-hover:bg-[hsl(var(--red-accent))] group-hover:text-white">
+          <IconComponent className="h-6 w-6 md:h-7 md:w-7" />
         </div>
-        <span className="text-foreground font-medium text-sm md:text-base text-center px-2">
+        <span className="text-foreground font-medium text-xs md:text-sm text-center px-2">
           {category.name}
         </span>
       </div>
