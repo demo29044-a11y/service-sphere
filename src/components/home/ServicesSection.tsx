@@ -9,7 +9,7 @@ export function ServicesSection() {
         </h2>
         
         {/* Services Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6">
+        <div className="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-10 gap-3 md:gap-4">
           {serviceCategories.map((_, index) => <ServicePlaceholderCard key={index} index={index} />)}
         </div>
       </div>
