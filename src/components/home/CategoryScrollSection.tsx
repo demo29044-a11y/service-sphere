@@ -65,7 +65,7 @@ export function CategoryScrollSection({ title, providers }: CategoryScrollSectio
       {/* Horizontal Scroll Container */}
       <div
         ref={scrollContainerRef}
-        className="flex gap-5 overflow-x-auto scrollbar-hide pb-2 -mx-4 px-4 scroll-smooth"
+        className="flex gap-3 overflow-x-auto scrollbar-hide pb-2 -mx-4 px-4 scroll-smooth"
         style={{
           scrollbarWidth: "none",
           msOverflowStyle: "none",

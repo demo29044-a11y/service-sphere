@@ -30,7 +30,7 @@ export function CategoryProviderCard({
     <Link
       to={`/provider/${id}`}
       className={cn(
-        "group flex-shrink-0 w-[220px] bg-card rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 hover:scale-[1.02]",
+        "group flex-shrink-0 w-[180px] bg-card rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 hover:scale-[1.02]",
         className
       )}
     >
