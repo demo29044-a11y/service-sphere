@@ -5,9 +5,10 @@ export function CategorySections() {
   const sections = [
     { title: "Contractors", providers: categoryProviders.contractors },
     { title: "Machines", providers: categoryProviders.machines },
-    { title: "Home Services", providers: categoryProviders.homeServices },
-    { title: "Training", providers: categoryProviders.training },
-    { title: "Massage & Wellness", providers: categoryProviders.massage },
+    { title: "Construction", providers: categoryProviders.construction },
+    { title: "Logistics", providers: categoryProviders.logistics },
+    { title: "Vendors", providers: categoryProviders.vendors },
+    { title: "Rental Services", providers: categoryProviders.rentalServices },
     { title: "Real Estate (Land/Homes)", providers: categoryProviders.realEstate },
   ];
 
