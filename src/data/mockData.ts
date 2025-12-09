@@ -1,12 +1,14 @@
 export const categories = [
-  { id: "1", name: "Web Development", icon: "Code", count: 1240, slug: "web-development" },
-  { id: "2", name: "Graphic Design", icon: "Palette", count: 890, slug: "graphic-design" },
-  { id: "3", name: "Digital Marketing", icon: "TrendingUp", count: 654, slug: "digital-marketing" },
-  { id: "4", name: "Writing & Translation", icon: "FileText", count: 432, slug: "writing-translation" },
-  { id: "5", name: "Video & Animation", icon: "Video", count: 567, slug: "video-animation" },
-  { id: "6", name: "Music & Audio", icon: "Music", count: 321, slug: "music-audio" },
-  { id: "7", name: "Business Consulting", icon: "Briefcase", count: 234, slug: "business-consulting" },
-  { id: "8", name: "IT & Networking", icon: "Server", count: 456, slug: "it-networking" },
+  { id: "1", name: "Contractors", icon: "HardHat", count: 1240, slug: "contractors" },
+  { id: "2", name: "Machines", icon: "Cog", count: 890, slug: "machines" },
+  { id: "3", name: "Land", icon: "MapPin", count: 654, slug: "land" },
+  { id: "4", name: "Homes", icon: "Home", count: 432, slug: "homes" },
+  { id: "5", name: "Space", icon: "Building2", count: 567, slug: "space" },
+  { id: "6", name: "Manufacturer", icon: "Factory", count: 321, slug: "manufacturer" },
+  { id: "7", name: "Logistics", icon: "Truck", count: 234, slug: "logistics" },
+  { id: "8", name: "Vendors", icon: "Store", count: 456, slug: "vendors" },
+  { id: "9", name: "Rental Services", icon: "Key", count: 389, slug: "rental-services" },
+  { id: "10", name: "Construction", icon: "Building", count: 712, slug: "construction" },
 ];
 
 export const providers = [
