@@ -45,12 +45,8 @@ export function Footer() {
         {/* Newsletter Section */}
         <div className="mb-12 flex flex-col md:flex-row items-center justify-between gap-6 rounded-xl bg-primary p-6 md:p-8">
           <div className="text-center md:text-left">
-            <h3 className="text-xl font-semibold text-primary-foreground">
-              Stay updated with the latest services
-            </h3>
-            <p className="mt-1 text-primary-foreground/80">
-              Get exclusive offers and updates delivered to your inbox.
-            </p>
+            <h3 className="text-xl font-semibold text-primary-foreground">Stay updated with the latest services</h3>
+            <p className="mt-1 text-primary-foreground/80">Get exclusive offers and updates delivered to your inbox.</p>
           </div>
           <div className="flex w-full md:w-auto gap-2">
             <Input
@@ -72,10 +68,7 @@ export function Footer() {
             <ul className="space-y-3">
               {footerLinks.forBuyers.map((link) => (
                 <li key={link.label}>
-                  <Link
-                    to={link.href}
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
-                  >
+                  <Link to={link.href} className="text-sm text-muted-foreground hover:text-primary transition-colors">
                     {link.label}
                   </Link>
                 </li>
@@ -87,10 +80,7 @@ export function Footer() {
             <ul className="space-y-3">
               {footerLinks.forProviders.map((link) => (
                 <li key={link.label}>
-                  <Link
-                    to={link.href}
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
-                  >
+                  <Link to={link.href} className="text-sm text-muted-foreground hover:text-primary transition-colors">
                     {link.label}
                   </Link>
                 </li>
@@ -102,10 +92,7 @@ export function Footer() {
             <ul className="space-y-3">
               {footerLinks.company.map((link) => (
                 <li key={link.label}>
-                  <Link
-                    to={link.href}
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
-                  >
+                  <Link to={link.href} className="text-sm text-muted-foreground hover:text-primary transition-colors">
                     {link.label}
                   </Link>
                 </li>
@@ -117,10 +104,7 @@ export function Footer() {
             <ul className="space-y-3">
               {footerLinks.support.map((link) => (
                 <li key={link.label}>
-                  <Link
-                    to={link.href}
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
-                  >
+                  <Link to={link.href} className="text-sm text-muted-foreground hover:text-primary transition-colors">
                     {link.label}
                   </Link>
                 </li>
@@ -137,11 +121,11 @@ export function Footer() {
             <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary">
               <span className="text-lg font-bold text-primary-foreground">S</span>
             </div>
-            <span className="text-xl font-bold text-foreground">ServiceHub</span>
+            <span className="text-xl font-bold text-foreground">Imagineering Construct</span>
           </div>
-          
+
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} ServiceHub. All rights reserved.
+            © {new Date().getFullYear()} Imagineering Construct. All rights reserved.
           </p>
 
           <div className="flex items-center gap-4">
