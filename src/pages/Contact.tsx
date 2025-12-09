@@ -328,11 +328,11 @@ export default function Contact() {
                         <div>
                           <h3 className="font-bold text-foreground text-lg">Our Office</h3>
                           <p className="text-muted-foreground mt-2 leading-relaxed">
-                            123 Market Street, Suite 456
+                            123 Kolar, Bhopal
                             <br />
-                            San Francisco, CA 94102
+                            Madhya Pradesh, India
                             <br />
-                            United States
+                            462023
                           </p>
                         </div>
                       </div>
