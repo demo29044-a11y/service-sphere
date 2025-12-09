@@ -1,13 +1,20 @@
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import heroBackground from "@/assets/about-hero-bg.jpg";
 
 const HeroAbout = () => {
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.2 });
 
   return (
-    <section className="relative py-20 md:py-32 bg-gradient-to-b from-muted/50 to-background">
+    <section 
+      className="relative py-20 md:py-32 bg-cover bg-center bg-no-repeat"
+      style={{ backgroundImage: `url(${heroBackground})` }}
+    >
+      {/* Overlay for better text readability */}
+      <div className="absolute inset-0 bg-background/70" />
+      
       <div 
         ref={ref}
-        className={`container mx-auto px-4 text-center transition-all duration-700 ${
+        className={`container mx-auto px-4 text-center relative z-10 transition-all duration-700 ${
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         }`}
       >
