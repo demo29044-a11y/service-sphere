@@ -72,6 +72,9 @@ const StatsSection = () => {
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Growing every day to serve you better
           </p>
+          <p className="text-sm text-muted-foreground/70 mt-2">
+            Statistics as of {new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
+          </p>
         </div>
         <div ref={statsRef} className="grid grid-cols-2 lg:grid-cols-4 gap-8 max-w-4xl mx-auto">
           {stats.map((stat, index) => (
