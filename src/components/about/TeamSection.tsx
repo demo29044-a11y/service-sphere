@@ -7,25 +7,25 @@ const team = [
     name: "Sarah Johnson",
     role: "CEO & Founder",
     avatar: "",
-    bio: "Visionary leader with 15+ years in marketplace technology.",
+    bio: "Visionary leader with 15+ years in marketplace technology. Previously led product at two successful startups, scaling platforms to serve millions of users.",
   },
   {
     name: "Michael Chen",
     role: "CTO",
     avatar: "",
-    bio: "Tech innovator passionate about building scalable platforms.",
+    bio: "Tech innovator passionate about building scalable platforms. Former senior engineer at major tech companies, specializing in location-based services and real-time systems.",
   },
   {
     name: "Emily Rodriguez",
     role: "Head of Operations",
     avatar: "",
-    bio: "Operations expert ensuring seamless service delivery.",
+    bio: "Operations expert ensuring seamless service delivery. 12+ years optimizing supply chains and marketplace operations, with a focus on customer satisfaction.",
   },
   {
     name: "David Kim",
     role: "Head of Partnerships",
     avatar: "",
-    bio: "Building strong relationships with providers nationwide.",
+    bio: "Building strong relationships with providers nationwide. Expert in B2B partnerships with a track record of growing provider networks by 300%+ in previous roles.",
   },
 ];
 
