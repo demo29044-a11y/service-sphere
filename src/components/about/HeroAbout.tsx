@@ -1,5 +1,5 @@
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import heroBackground from "@/assets/20945858.jpg";
+import heroBackground from "@/assets/about-hero-bg.jpg";
 
 const HeroAbout = () => {
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.2 });
