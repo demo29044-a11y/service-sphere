@@ -1,42 +1,60 @@
 import { useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
+import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Separator } from "@/components/ui/separator";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Eye, EyeOff, Mail, Lock, User, Briefcase } from "lucide-react";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { User, Briefcase, Phone, ShieldCheck } from "lucide-react";
 
 export default function Signup() {
   const [searchParams] = useSearchParams();
   const defaultType = searchParams.get("type") === "provider" ? "provider" : "buyer";
   
-  const [showPassword, setShowPassword] = useState(false);
   const [userType, setUserType] = useState(defaultType);
+  const [isSendingOtp, setIsSendingOtp] = useState(false);
+  const [otpSent, setOtpSent] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
-    email: "",
-    password: "",
+    mobile: "",
+    otp: "",
   });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Demo - would integrate with auth
-    console.log("Signup:", { ...formData, userType });
+    console.log("Signup:", { ...formData, userType, method: "mobile-otp" });
+  };
+
+  const handleSendOtp = () => {
+    if (!formData.mobile.trim()) {
+      alert("Please enter your mobile number.");
+      return;
+    }
+    setIsSendingOtp(true);
+    setOtpSent(false);
+    setTimeout(() => {
+      setIsSendingOtp(false);
+      setOtpSent(true);
+    }, 1200);
   };
 
   return (
-    <div className="min-h-screen flex">
-      {/* Left Side - Form */}
-      <div className="flex-1 flex items-center justify-center p-8">
-        <div className="w-full max-w-md">
+    <div className="min-h-screen flex flex-col">
+      <Header />
+      <main className="flex-1 flex">
+        {/* Left Side - Form */}
+        <div className="flex-1 flex items-center justify-center p-8">
+          <div className="w-full max-w-md">
           <Link to="/" className="flex items-center gap-2 mb-8">
             <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary">
-              <span className="text-lg font-bold text-primary-foreground">S</span>
+              <span className="text-lg font-bold text-primary-foreground">I</span>
             </div>
-            <span className="text-xl font-bold text-foreground">ServiceHub</span>
+            <span className="text-xl font-bold text-foreground">Imagineering India</span>
           </Link>
 
           <Card className="border-0 shadow-none">
@@ -61,7 +79,7 @@ export default function Signup() {
                 </TabsList>
               </Tabs>
 
-              <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="space-y-2">
                   <Label htmlFor="name">Full Name</Label>
                   <div className="relative">
@@ -80,57 +98,52 @@ export default function Signup() {
                   </div>
                 </div>
 
-                <div className="space-y-2">
-                  <Label htmlFor="email">Email</Label>
-                  <div className="relative">
-                    <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                    <Input
-                      id="email"
-                      type="email"
-                      placeholder="name@example.com"
-                      value={formData.email}
-                      onChange={(e) =>
-                        setFormData({ ...formData, email: e.target.value })
-                      }
-                      className="pl-9"
-                      required
-                    />
-                  </div>
+              <div className="space-y-2">
+                <Label htmlFor="mobile">Mobile Number</Label>
+                <div className="relative">
+                  <Phone className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                  <Input
+                    id="mobile"
+                    type="tel"
+                    placeholder="e.g., +91 9876543210"
+                    value={formData.mobile}
+                    onChange={(e) =>
+                      setFormData({ ...formData, mobile: e.target.value })
+                    }
+                    className="pl-9"
+                    required
+                  />
                 </div>
+              </div>
 
-                <div className="space-y-2">
-                  <Label htmlFor="password">Password</Label>
-                  <div className="relative">
-                    <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                    <Input
-                      id="password"
-                      type={showPassword ? "text" : "password"}
-                      placeholder="Create a strong password"
-                      value={formData.password}
-                      onChange={(e) =>
-                        setFormData({ ...formData, password: e.target.value })
-                      }
-                      className="pl-9 pr-9"
-                      required
-                    />
-                    <Button
-                      type="button"
-                      variant="ghost"
-                      size="icon"
-                      className="absolute right-0 top-0 h-full px-3 hover:bg-transparent"
-                      onClick={() => setShowPassword(!showPassword)}
-                    >
-                      {showPassword ? (
-                        <EyeOff className="h-4 w-4 text-muted-foreground" />
-                      ) : (
-                        <Eye className="h-4 w-4 text-muted-foreground" />
-                      )}
-                    </Button>
-                  </div>
-                  <p className="text-xs text-muted-foreground">
-                    Must be at least 8 characters with one uppercase and one number
-                  </p>
+              <div className="space-y-2">
+                <Label htmlFor="otp">OTP</Label>
+                <div className="flex gap-2">
+                  <Input
+                    id="otp"
+                    type="text"
+                    placeholder="Enter OTP"
+                    value={formData.otp}
+                    onChange={(e) =>
+                      setFormData({ ...formData, otp: e.target.value })
+                    }
+                    required
+                  />
+                  <Button
+                    type="button"
+                    variant="outline"
+                    onClick={handleSendOtp}
+                    disabled={isSendingOtp}
+                  >
+                    {isSendingOtp ? "Sending..." : otpSent ? "Resend OTP" : "Send OTP"}
+                  </Button>
                 </div>
+                {otpSent && (
+                  <p className="text-xs text-green-600 flex items-center gap-1">
+                    <ShieldCheck className="h-3 w-3" /> OTP sent to your mobile.
+                  </p>
+                )}
+              </div>
 
                 <div className="flex items-start space-x-2">
                   <Checkbox id="terms" required />
@@ -198,48 +211,50 @@ export default function Signup() {
             </CardFooter>
           </Card>
         </div>
-      </div>
+        </div>
 
-      {/* Right Side - Image/Branding */}
-      <div className="hidden lg:flex flex-1 bg-primary items-center justify-center p-12">
-        <div className="max-w-md text-center text-primary-foreground">
-          {userType === "buyer" ? (
-            <>
-              <h2 className="text-3xl font-bold mb-4">
-                Find the Perfect Service Provider
-              </h2>
-              <p className="text-lg opacity-90">
-                Browse thousands of verified professionals, compare prices, and
-                hire with confidence.
-              </p>
-            </>
-          ) : (
-            <>
-              <h2 className="text-3xl font-bold mb-4">
-                Grow Your Business with Us
-              </h2>
-              <p className="text-lg opacity-90">
-                Reach thousands of potential clients, showcase your skills, and
-                build your professional reputation.
-              </p>
-            </>
-          )}
-          <div className="mt-8 grid grid-cols-3 gap-4">
-            <div className="text-center">
-              <p className="text-3xl font-bold">Free</p>
-              <p className="text-sm opacity-80">To Start</p>
-            </div>
-            <div className="text-center">
-              <p className="text-3xl font-bold">24/7</p>
-              <p className="text-sm opacity-80">Support</p>
-            </div>
-            <div className="text-center">
-              <p className="text-3xl font-bold">Secure</p>
-              <p className="text-sm opacity-80">Payments</p>
+        {/* Right Side - Image/Branding */}
+        <div className="hidden lg:flex flex-1 bg-primary items-center justify-center p-12">
+          <div className="max-w-md text-center text-primary-foreground">
+            {userType === "buyer" ? (
+              <>
+                <h2 className="text-3xl font-bold mb-4">
+                  Find the Perfect Service Provider
+                </h2>
+                <p className="text-lg opacity-90">
+                  Browse thousands of verified professionals, compare prices, and
+                  hire with confidence.
+                </p>
+              </>
+            ) : (
+              <>
+                <h2 className="text-3xl font-bold mb-4">
+                  Grow Your Business with Us
+                </h2>
+                <p className="text-lg opacity-90">
+                  Reach thousands of potential clients, showcase your skills, and
+                  build your professional reputation.
+                </p>
+              </>
+            )}
+            <div className="mt-8 grid grid-cols-3 gap-4">
+              <div className="text-center">
+                <p className="text-3xl font-bold">Free</p>
+                <p className="text-sm opacity-80">To Start</p>
+              </div>
+              <div className="text-center">
+                <p className="text-3xl font-bold">24/7</p>
+                <p className="text-sm opacity-80">Support</p>
+              </div>
+              <div className="text-center">
+                <p className="text-3xl font-bold">Secure</p>
+                <p className="text-sm opacity-80">Payments</p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </main>
+      <Footer />
     </div>
   );
 }
