@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -20,15 +22,17 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen flex">
-      {/* Left Side - Form */}
-      <div className="flex-1 flex items-center justify-center p-8">
+    <div className="min-h-screen flex flex-col">
+      <Header />
+      <main className="flex-1 flex">
+        {/* Left Side - Form */}
+        <div className="flex-1 flex items-center justify-center p-8">
         <div className="w-full max-w-md">
           <Link to="/" className="flex items-center gap-2 mb-8">
             <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary">
-              <span className="text-lg font-bold text-primary-foreground">S</span>
+              <span className="text-lg font-bold text-primary-foreground">I</span>
             </div>
-            <span className="text-xl font-bold text-foreground">ServiceHub</span>
+            <span className="text-xl font-bold text-foreground">Imagineering India</span>
           </Link>
 
           <Card className="border-0 shadow-none">
@@ -180,6 +184,8 @@ export default function Login() {
           </div>
         </div>
       </div>
+      </main>
+      <Footer />
     </div>
   );
 }
