@@ -1,8 +1,8 @@
 import { ServicePlaceholderCard, serviceCategories } from "./ServicePlaceholderCard";
 export function ServicesSection() {
   return (
-    <section className="px-4 md:px-8 py-12 md:py-16 mt-8">
-      <div className="max-w-7xl mx-auto">
+    <section className="px-4 md:px-12 py-8 md:py-14 mt-8">
+      <div className="max-w-3xl mx-auto">
         {/* Section Title */}
         <h2 className="text-3xl md:text-4xl font-bold mb-8 md:mb-12 text-center md:text-center">
           <span className="text-foreground">Our </span>
