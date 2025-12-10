@@ -28,7 +28,7 @@ import {
   Instagram,
 } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import ChatWidget from "@/components/chat/ChatWidget";
+import ChatWidget from "@/components/Chat/ChatWidget";
 import contactHeroImage from "@/assets/contactusbanner.jpeg";
 
 const contactMethods = [
