@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
@@ -28,6 +28,8 @@ import {
   Instagram,
 } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import ChatWidget from "@/components/chat/ChatWidget";
+import contactHeroImage from "@/assets/contactusbanner.jpeg";
 
 const contactMethods = [
   {
@@ -49,9 +51,9 @@ const contactMethods = [
   {
     icon: MessageSquare,
     title: "Live Chat",
-    description: "Available for Pro & Business users",
+    description: "Chat with us instantly",
     contact: "Start a conversation",
-    action: "#",
+    action: "#chat",
     gradient: "from-purple-500 to-pink-500",
   },
 ];
@@ -72,6 +74,7 @@ export default function Contact() {
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const chatWidgetRef = useRef<{ openChat: () => void }>(null);
 
   const heroAnimation = useScrollAnimation();
   const methodsAnimation = useScrollAnimation();
@@ -99,7 +102,7 @@ export default function Contact() {
           <div
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
             style={{
-              backgroundImage: `url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=2000&q=80')`,
+              backgroundImage: `url(${contactHeroImage})`,
             }}
           />
           <div className="absolute inset-0 bg-gradient-to-br from-primary/90 via-primary/80 to-primary/70" />
@@ -136,6 +139,12 @@ export default function Contact() {
                 <a
                   key={method.title}
                   href={method.action}
+                  onClick={(e) => {
+                    if (method.action === "#chat") {
+                      e.preventDefault();
+                      chatWidgetRef.current?.openChat();
+                    }
+                  }}
                   className="group block"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
@@ -432,6 +441,7 @@ export default function Contact() {
       </main>
 
       <Footer />
+      <ChatWidget ref={chatWidgetRef} />
     </div>
   );
 }
